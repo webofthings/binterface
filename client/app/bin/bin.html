@@ -1,0 +1,48 @@
+<h2>{{$ctrl.bin.name}}</h2>
+
+<span class="status-box">
+  Bin OK
+</span>
+
+<uib-tabset active="activeJustified">
+  <uib-tab index="0" heading="Status">
+
+    <table class="table">
+
+      <tr ng-class="$ctrl.getColor($ctrl.bin.usv)">
+        <td>&#181;Sv</td>
+        <td>1000</td>
+      </tr>
+      <tr class="good">
+        <td>temp</td>
+        <td>1000</td>
+      </tr>
+
+      <tr class="good">
+        <td>humid</td>
+        <td>1000</td>
+      </tr>
+
+      <tr class="good">
+        <td>pres</td>
+        <td>1000</td>
+      </tr>
+
+
+      <tr class="good">
+        <td>batt</td>
+        <td>1000</td>
+      </tr>
+
+
+      <tr class="good">
+        <td>updated</td>
+        <td>{{}}</td>
+      </tr>
+    </table>
+
+  </uib-tab>
+  <uib-tab index="1" heading="Location">Location</uib-tab>
+  <uib-tab index="2" heading="History">History</uib-tab>
+</uib-tabset>
+

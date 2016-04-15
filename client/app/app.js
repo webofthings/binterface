@@ -1,5 +1,13 @@
 'use strict';
 
+
+
+window.addEventListener('unhandledrejection', function() {
+  console.log(arguments);
+});
+
+
+
 angular.module('binterfaceApp', [
   'binterfaceApp.constants',
   'ngCookies',
@@ -32,6 +40,11 @@ angular.module('binterfaceApp', [
             app = new EVT.App(options.appApiKey);
 
           return {
+
+            getOptions : function() {
+              return options;
+            },
+
             getApp: function() {
               return app;
             },
@@ -50,6 +63,7 @@ angular.module('binterfaceApp', [
     //Scope ApiKey for swap from Log in page.
     .config(function(EvrythngProvider){
         var evrythngOptions = {
+            op: 'n7xsEdYOPNvE8lll9XXMJd3mRupLjTSx4DYn4d3kdBeuILiaTG4o3wEeY4MgwBmPkw50HiBMdV6JCtcX',
             appApiKey: 'lMMP6cYAfn9ndJI4HVyVh9dtIbJ7syUPwxFnEfGai3LtLDVm4wgcgWkH9Ow1DSGSJ9xL9BCSZfMGi9Fl',
             userApiKey: 'khQX3CiasowqaNLG4flQkfipq8CfQUt8OqOh57RbmdXBPArI5CXE5Nr85sGamRgWrhtx28LJRS3VQ53Q'
         };

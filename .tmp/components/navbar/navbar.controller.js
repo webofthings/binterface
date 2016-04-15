@@ -16,9 +16,6 @@ function NavbarController() {
     'title': 'Monitor',
     'state': 'monitor'
   }, {
-    'title': 'Maintenance',
-    'state': 'maintenance'
-  }, {
     'title': 'Setup',
     'state': 'setup'
   }];

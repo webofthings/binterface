@@ -23,15 +23,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.user.collection().create({
           name: 'Bin to Binometer Pair'
         }).then(function (collection) {
-          console.log(1, _this.results, _this.user);
-          return _this.user.thng(_this.results[0].id).update({
-            collections: [collection.id]
-          }).then(function (thng) {
-            console.log(2, thng);
-            return _this.user.thng(_this.results[1].id).update({
-              collections: [collection.id]
-            }).then(function (thng) {
-              console.log(3, thng);
+
+          return EVT.api({
+            url: '/collections/' + collection.id + '/thngs',
+            data: [_this.results[0].thng.id],
+            method: 'put',
+            authorization: _this.Evrythng.getOptions().op
+          }).then(function (val) {
+            return EVT.api({
+              url: '/collections/' + collection.id + '/thngs',
+              data: [_this.results[1].thng.id],
+              method: 'put',
+              authorization: _this.Evrythng.getOptions().op
             });
           });
         });

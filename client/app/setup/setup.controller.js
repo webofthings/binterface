@@ -14,21 +14,27 @@ class SetupComponent {
     this.user.collection().create({
       name : 'Bin to Binometer Pair'
     }).then(collection => {
-      console.log(1, this.results, this.user)
-      return this.user.thng(this.results[0].id).update({
-        collections : [collection.id]
-      }).then((thng) => {
-        console.log(2, thng)
-        return this.user.thng(this.results[1].id).update({
-          collections : [collection.id]
-        }).then(thng => {
-          console.log(3, thng)
-        })
+
+      return EVT.api({
+        url : '/collections/' + collection.id + '/thngs',
+        data : [this.results[0].thng.id],
+        method : 'put',
+        authorization : this.Evrythng.getOptions().op
+      }).then(val => {
+        return EVT.api({
+          url : '/collections/' + collection.id + '/thngs',
+          data : [this.results[1].thng.id],
+          method : 'put',
+          authorization : this.Evrythng.getOptions().op
+        });
       });
+
     });
   }
 
   scanBin(results) {
+
+
     this.app.scan({
       type: 'qrcode',
       redirect : false,

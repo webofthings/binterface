@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../client/app/bins/bins.service.js"],"names":[],"mappings":"AAAA;;AAEA,QAAQ,MAAR,CAAe,eAAf,EACG,OADH,CACW,MADX,EACmB,YAAY,EAAZ,CADnB","file":"bins.service.js","sourcesContent":["'use strict';\n\nangular.module('binterfaceApp')\n  .service('bins', function () {\n\n  });\n"]}
